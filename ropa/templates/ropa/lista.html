@@ -1,0 +1,32 @@
+<div>
+	<h1>Lista de Usuarios</h1>
+	<ul>
+		<button onclick="window.location='{% url "nuevo" %}'">Agregar Ropa</button>
+
+		{% for ropa in ropa %}
+			<h3>{{ropa.propietario}}</h3>
+
+			<ul>
+				<li>{{ropa.telefono}}</li>
+				<li>{{ropa.mail}}</li>
+			</ul>
+
+			<form method="POST">
+				{% csrf_token %}
+				<input type="submit" value="eliminar" onclick="return confirm('Deseas eliminar la prenda: {{ropa}}');">
+				<input type="hidden" name="idEliminar" value="{{ropa.id}}">
+			</form>
+
+			<form method="POST">
+				{% csrf_token %}
+				<input type="submit" value="editar" onclick="return confirm('Deseas editar la prenda: {{ropa}}');">
+				<input type="hidden" name="idEditar" value="{{ropa.id}}">
+			</form>
+			
+			<!--<a href="javascript: if (confirm('Deseas modificar {{ropa}}??')) window.location='{% url "editar" pk=ropa.id %}'">Editar</a>-->
+			<!--<a href="javascript: if (confirm('Deseas eliminar {{ropa}}??')) window.location='{% url "eliminar" pk=ropa.id %}'">Eliminar</a>-->
+
+			<hr>
+		{% endfor %}
+	</ul>
+</div>

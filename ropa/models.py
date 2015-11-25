@@ -5,21 +5,21 @@ class TipoTela(models.Model):
 	tipoTela = models.CharField(max_length=65)
 
 	def __str__(self):
-		return self.estado
+		return self.tipoTela
 
 
 class Color(models.Model):
 	color = models.CharField(max_length=65)
 
 	def __str__(self):
-		return self.estado
+		return self.color
 
 
 class TipoPrenda(models.Model):
 	tipoPrenda = models.CharField(max_length=65)
 
 	def __str__(self):
-		return self.estado
+		return self.tipoPrenda
 
 
 class Ropa(models.Model):
@@ -40,4 +40,4 @@ class Ropa(models.Model):
 	color = models.ForeignKey(Color)
 
 	def __str__(self):
-		return self.estado
+		return self.propietario

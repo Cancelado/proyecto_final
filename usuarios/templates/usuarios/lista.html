@@ -1,0 +1,15 @@
+<div>
+	<h1>Lista de Usuarios :v</h1>
+	<button onclick="window.location='{% url "nuevoU" %}'">Agregar Usuario </button>
+		{% for user in usuarios %}
+		<h3> {{user.nombre}} {{user.apellidos}}</h3>
+		<ul>
+			<li>{{user.usuario}}</li>
+			<li>{{user.mail}}</li>
+		</ul>
+		<a href = "javascript: if(confirm('Deseas editar {{user}}??')) window.location='{% url "editar" pk=user.id %}'"> Editar</a>
+		<a href = "javascript: if(confirm('Deseas eliminar {{user}}??')) window.location='{% url "eliminar" pk=user.id %}'"> Eliminar</a>
+		<br>
+		<hr>
+		{% endfor %}
+</div>

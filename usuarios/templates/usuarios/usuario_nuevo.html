@@ -1,0 +1,9 @@
+<div>
+	<h1> {{etiqueta}} Usuario</h1>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type = "submit" value = "Guardar" />
+		<button type="button" onclick="window.location='{% url "listar" %}'"> Cancelar </button>	
+	</form>
+</div>

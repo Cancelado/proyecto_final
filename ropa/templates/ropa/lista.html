@@ -1,7 +1,7 @@
 <div>
-	<h1>Lista de Usuarios</h1>
+	<h1>Lista de Prendas</h1>
 	<ul>
-		<button onclick="window.location='{% url "nuevo" %}'">Agregar Ropa</button>
+		<button onclick="window.location='{% url "nuevo" %}'">Agregar Prenda</button>
 
 		{% for ropa in ropa %}
 			<h3>{{ropa.propietario}}</h3>

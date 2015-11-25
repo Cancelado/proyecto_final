@@ -20,4 +20,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^usuarios/', include('usuarios.urls')),
     url(r'^nuevaPrenda/', include("ropa.urls")),
+    url(r'^nuevoTipoTela/', include("ropa.urls")),
+    url(r'^nuevoColor/', include("ropa.urls")),
+    url(r'^nuevoTipoPrenda/', include("ropa.urls")),
 ]

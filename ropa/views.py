@@ -1,8 +1,15 @@
 # coding: utf-8
 from django.shortcuts import render, redirect, get_object_or_404
 from ropa.models import Ropa
+from ropa.models import Color
+from ropa.models import TipoPrenda
+from ropa.models import TipoTela
 from ropa.forms import RopaForm
+from ropa.forms import ColorForm
+from ropa.forms import TipoPrendaForm
+from ropa.forms import TipoTelaForm
 
+"""Ropa"""
 def listar(request):
 	ropa = Ropa.objects.all()
 	return render(request, 'ropa/lista.html', {'ropa':ropa})
@@ -54,3 +61,7 @@ def editar_post(request):
 			ropa.save()
 			return redirect('listar')
 	return render(request,'ropa/ropa_nueva.html',{'form':form, 'id' : ropa.id,'etiqueta':'Actualizar'})
+
+"""Color"""
+"""TipoPrenda"""
+"""TipoTela"""

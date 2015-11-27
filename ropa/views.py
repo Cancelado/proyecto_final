@@ -219,4 +219,8 @@ def editar_post_TipoTela(request):
 			tipoTela = form.save()
 			tipoTela.save()
 			return redirect('listar')
+<<<<<<< HEAD
 	return render(request,'tipoTela/tipoTela.html',{'form':form, 'id' : tipoTela.id,'etiqueta':'Actualizar'})
+=======
+	return render(request,'tipoTela/tipoTela.html',{'form':form, 'id' : tipoTela.id,'etiqueta':'Actualizar'})
+>>>>>>> 6eff7f3d839a1423ce1c9cac6973bd1a629a033a

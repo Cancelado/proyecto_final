@@ -124,3 +124,29 @@ def when_oprimo_el_boton_de_group1(step, group1):
 @step(u'Then Puedo ver el historial completo del empleado Jose.')
 def then_puedo_ver_el_historial_completo_del_empleado_jose(step):
     assert False, 'This step must be implemented'
+
+[1;37mFeature: Como empleado de la tintoreria                           [1;30m# consulta_historial_empleado_empleado.feature:2[0m
+[1;37m  quiero consultar el historial de los empleados                  [1;30m# consulta_historial_empleado_empleado.feature:3[0m
+[1;37m  para poder ver las actividades que realizan los empleados.      [1;30m# consulta_historial_empleado_empleado.feature:4[0m
+
+[1;37m  Scenario: Historial del empleado Jose                           [1;30m# consulta_historial_empleado_empleado.feature:6[0m
+[1;30m    Given Que selecciono al empleado Jose en la lista de empleado [1;30m# steps.py:119[0m
+[A[0;31m    Given Que selecciono al empleado Jose en la lista de empleado [1;41;33m# steps.py:119[0m
+[1;31m    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/lettuce/core.py", line 144, in __call__
+        ret = self.function(self.step, *args, **kw)
+      File "/vagrant/proyecto_final/tests/features/steps.py", line 120, in given_que_selecciono_al_empleado_jose_en_la_lista_de_empleado
+        assert False, 'This step must be implemented'
+    AssertionError: This step must be implemented[0m
+[1;30m    When Oprimo el boton de "historial"                           [1;30m# steps.py:122[0m
+[A[0;36m    When Oprimo el boton de "historial"                           [1;30m# steps.py:122[0m
+[1;30m    Then Puedo ver el historial completo del empleado Jose.       [1;30m# steps.py:125[0m
+[A[0;36m    Then Puedo ver el historial completo del empleado Jose.       [1;30m# steps.py:125[0m
+
+[1;37m1 feature ([0;31m0 passed[1;37m)[0m
+[1;37m1 scenario ([0;31m0 passed[1;37m)[0m
+[1;37m3 steps ([0;31m1 failed[1;37m, [0;36m2 skipped[1;37m, [1;32m0 passed[1;37m)[0m
+
+[1;31mList of failed scenarios:
+[0;31m  Scenario: Historial del empleado Jose                           # consulta_historial_empleado_empleado.feature:6
+[0m

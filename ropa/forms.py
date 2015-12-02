@@ -6,7 +6,7 @@ class RopaForm(forms.ModelForm):
 
 	class Meta(object):
 		model = Ropa
-		fields = ['propietario', 'telefono','mail','fechaRecibo','fechaEntrega','costo','tipoTela','tipoPrenda','color']
+		fields = ['id', 'propietario', 'telefono','mail','fechaRecibo','fechaEntrega','costo','tipoTela','tipoPrenda','color']
 
 class ColorForm(forms.ModelForm):
 

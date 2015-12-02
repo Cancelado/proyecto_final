@@ -1,5 +1,6 @@
 # coding: utf-8
 from django.conf.urls import include, url
+from ropa import views
 from .views import listar, nuevo, eliminar, editar, eliminar_post, editar_post
 
 urlpatterns = [

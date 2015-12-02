@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'proyecto_final.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'TORNEO',
-        'USER': 'usertorneo',
-        'PASSWORD': 'passtorneo',
+        'NAME': 'TINTORERIA',
+        'USER': 'usertintoreria',
+        'PASSWORD': 'passtintoreria',
         'PORT': '3306',
         'HOST': '127.0.0.1',
     }

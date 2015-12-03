@@ -4,14 +4,21 @@
 		<button onclick="window.location='{% url "nuevo" %}'">Agregar Prenda</button>
 
 		{% for ropa in ropa %}
-			<h3>{{ropa.propietario}}</h3>
+		<h3>Propietario:
+		{{ropa.propietario}}</h3>
 
 			<ul>
-				<li>{{ropa.telefono}}</li>
-				<li>{{ropa.mail}}</li>
+				<h4>ID: {{ropa.id}}</h4>
+				
+				<h4>Prenda:</h4>
+				<li>{{ropa.tipoPrenda}}</li>
+				<h4>Tipo Tela:</h4>
+				<li>{{ropa.tipoTela}}</li>
+				<h4>Color:</h4>
+				<li>{{ropa.color}}</li>
 			</ul>
 
-			<form method="POST">
+			<!-- <form method="POST">
 				{% csrf_token %}
 				<input type="submit" value="eliminar" onclick="return confirm('Deseas eliminar la prenda: {{ropa}}');">
 				<input type="hidden" name="idEliminar" value="{{ropa.id}}">
@@ -22,9 +29,10 @@
 				<input type="submit" value="editar" onclick="return confirm('Deseas editar la prenda: {{ropa}}');">
 				<input type="hidden" name="idEditar" value="{{ropa.id}}">
 			</form>
-			
-			<!--<a href="javascript: if (confirm('Deseas modificar {{ropa}}??')) window.location='{% url "editar" pk=ropa.id %}'">Editar</a>-->
-			<!--<a href="javascript: if (confirm('Deseas eliminar {{ropa}}??')) window.location='{% url "eliminar" pk=ropa.id %}'">Eliminar</a>-->
+			-->
+
+			<a href="javascript: if (confirm('Deseas modificar {{ropa}}??')) window.location='{% url "editar" pk=ropa.id %}'">Editar</a>
+			<a href="javascript: if (confirm('Deseas eliminar {{ropa}}??')) window.location='{% url "eliminar" pk=ropa.id %}'">Eliminar</a>
 
 			<hr>
 		{% endfor %}

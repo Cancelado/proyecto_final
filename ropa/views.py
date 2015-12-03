@@ -32,10 +32,6 @@ def eliminar(request, pk):
 	ropa.delete()
 	return redirect('listar')
 
-def eliminar_post(request):
-	ropa = Ropa.objects.get(id=request.POST.get('idEliminar'))
-	ropa.delete()
-	return redirect('listar')
 
 def editar(request, pk):
 	ropa = get_object_or_404(Ropa, pk=pk)
@@ -50,18 +46,6 @@ def editar(request, pk):
 		form = RopaForm(instance=ropa)
 	return render(request,'ropa/ropa_nueva.html',{'form':form, 'etiqueta':'Actualizar'})
 
-def editar_post(request):
-	if request.POST.get('idEditar'):
-		ropa = Ropa.objects.get(id=request.POST.get('idEditar'))
-		form = RopaForm(instance=ropa)
-	else:
-		ropa = Ropa.objects.get(id=request.POST.get('id'))
-		form = RopaForm(request.POST,instance=ropa)
-		if form.is_valid():
-			ropa = form.save()
-			ropa.save()
-			return redirect('listar')
-	return render(request,'ropa/ropa_nueva.html',{'form':form, 'id' : ropa.id,'etiqueta':'Actualizar'})
 
 """Color"""
 def listarColor(request):
@@ -103,18 +87,6 @@ def editarColor(request, pk):
 		form = ColorForm(instance=color)
 	return render(request,'color/nuevoColor.html',{'form':form, 'etiqueta':'Actualizar'})
 
-def editar_post_color(request):
-	if request.POST.get('idEditar'):
-		color = Color.objects.get(id=request.POST.get('idEditar'))
-		form = ColorForm(instance=color)
-	else:
-		color = Color.objects.get(id=request.POST.get('id'))
-		form = ColorForm(request.POST,instance=color)
-		if form.is_valid():
-			color = form.save()
-			color.save()
-			return redirect('listar')
-	return render(request,'color/nuevoColor.html',{'form':form, 'id' : color.id,'etiqueta':'Actualizar'})
 
 """TipoPrenda"""
 def listarTipoPrenda(request):
@@ -156,18 +128,6 @@ def editarTipoPrenda(request, pk):
 		form = TipoPrendaForm(instance=tipoPrenda)
 	return render(request,'tipoPrenda/tipoPrenda.html',{'form':form, 'etiqueta':'Actualizar'})
 
-def editar_post_TipoPrenda(request):
-	if request.POST.get('idEditar'):
-		tipoPrenda = TipoPrenda.objects.get(id=request.POST.get('idEditar'))
-		form = TipoPrendaForm(instance=tipoPrenda)
-	else:
-		tipoPrenda = TipoPrenda.objects.get(id=request.POST.get('id'))
-		form = TipoPrendaForm(request.POST,instance=tipoPrenda)
-		if form.is_valid():
-			tipoPrenda = form.save()
-			tipoPrenda.save()
-			return redirect('listar')
-	return render(request,'tipoPrenda/tipoPrenda.html',{'form':form, 'id' : tipoPrenda.id,'etiqueta':'Actualizar'})
 
 """TipoTela"""
 def listarTipoTela(request):
@@ -191,11 +151,6 @@ def eliminarTipoTela(request, pk):
 	tipoTela.delete()
 	return redirect('listar')
 
-def eliminar_post_TipoTela(request):
-	tipoTela = TipoTela.objects.get(id=request.POST.get('idEliminar'))
-	tipoTela.delete()
-	return redirect('listar')
-
 def editarTipoTela(request, pk):
 	tipoTela = get_object_or_404(TipoTela, pk=pk)
 	if request.method == "POST":
@@ -208,18 +163,3 @@ def editarTipoTela(request, pk):
 	else:
 		form = TipoTelaForm(instance=tipoTela)
 	return render(request,'tipoTela/TipoTela.html',{'form':form, 'etiqueta':'Actualizar'})
-
-def editar_post_TipoTela(request):
-	if request.POST.get('idEditar'):
-		tipoTela = TipoTela.objects.get(id=request.POST.get('idEditar'))
-		form = TipoTelaForm(instance=tipoTela)
-	else:
-		tipoTela = TipoTela.objects.get(id=request.POST.get('id'))
-		form = TipoTelaForm(request.POST,instance=tipoTela)
-		if form.is_valid():
-			tipoTela = form.save()
-			tipoTela.save()
-			return redirect('listar')
-		else:
-			form = TipoTelaForm(instance=tipoTela)
-		return render(request,'tipoTela/TipoTela.html',{'form':form, 'etiqueta':'Actualizar'})

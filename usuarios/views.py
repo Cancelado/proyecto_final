@@ -19,13 +19,13 @@ def nuevoU(request):
 		form = UsuarioForm
 	return render(request,'usuarios/usuario_nuevo.html',{'form':form, 'etiqueta':'Nuevo'})
 
-def eliminar(request, pk):
+def eliminarU(request, pk):
 	user = get_object_or_404(Usuario, pk = pk)
 	#user = Usuario.objects.get(pk = pk)
 	user.delete()
-	return redirect('listar')
+	return redirect('listarU')
 
-def editar(request, pk):
+def editarU(request, pk):
 	user = get_object_or_404(Usuario, pk = pk)
 	if request.method == "POST":
 		form = UsuarioForm(request.POST, instance = user)
@@ -33,7 +33,7 @@ def editar(request, pk):
 		if form.is_valid():
 			user = form.save()
 			user.save()
-			return redirect('listar')
+			return redirect('listarU')
 	else:
 		form = UsuarioForm (instance=user)
 	return render(request,'usuarios/usuario_nuevo.html',{'form':form, 'etiqueta':'Actualizar'})

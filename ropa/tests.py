@@ -2,6 +2,7 @@ from django.core.urlresolvers import resolve
 from django.test import TestCase
 from ropa.views import nuevo, listar, eliminar, editar
 from django.http import HttpRequest
+from ropa.models import Ropa, Color
 
 # Create your tests here.                                       
 class MainPageRopa(TestCase):
@@ -37,17 +38,30 @@ class MainPageRopa(TestCase):
 		found = resolve('/ropa/0/eliminar')
 		self.assertEqual(found.func, eliminar)
 
-	def test_ropa_eliminar_returns_correct_html(self):
+	def test_ropa_eliminar_returns_correct_error_message(self):
 		request = HttpRequest()
-		response = eliminar(request,0)
-		self.assertTrue(response.content.startswith(b'<div>'))
+		color=Color(color='azul')
+		color.save()
+		colores = Color.objects.all()
+
+		self.assertEqual(colores[0].color,'azul')
+		colores = Color.objects.all()
+
+		self.assertEqual(len(colores),1)
+
+		colorDel = Color.objects.get(color='azul')
+		colorDel.delete()
+
+#		self.assertIn('Http404', response.content)
 
 	#pruebas unitarias para probar la funcionalidad de la app ropa en su opcion editar ropa
 	def test_root_url_resolves_to_ropa_editar_view(self):
 		found = resolve('/ropa/1/editar/')
 		self.assertEqual(found.func, editar)
 
-	#def test_ropa_editar_returns_correct_html(self):
-	#	request = HttpRequest()
-	#	response = editar(request)
-	#	self.assertTrue(response.content.startswith(b'<div>'))
+	def test_ropa_editar_returns_correct_html(self):
+		request = HttpRequest()
+		request.method = 'POST'
+		request.POST['id'] = '1'
+		response = editar(request)
+		self.assertIn(b'Ropa</h1>', response.content)

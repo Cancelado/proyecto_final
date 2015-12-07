@@ -13,6 +13,7 @@ class MainPageRopa(TestCase):
 		found = resolve('/ropa/')
 		self.assertEqual(found.func, listar)
 
-	def test_root_url_resolves_to_editar_view_(self):
+
+	def test_root_url_resolves_to_editar_view(self):
 		found = resolve('/ropa/editar/')
 		self.assertEqual(found.func, editar)

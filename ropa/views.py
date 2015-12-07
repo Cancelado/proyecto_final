@@ -29,12 +29,12 @@ def nuevo(request):
 
 def eliminar(request, pk):
 	ropa = get_object_or_404(Ropa, pk=pk)
+	print (ropa)
 	ropa.delete()
 	return redirect('listar')
 
 
-def editar(request, pk):
-	ropa = get_object_or_404(Ropa, pk=pk)
+def editar(request):
 	if request.method == "POST":
 		form = RopaForm(request.POST, instance=ropa)
 		#print request.POST

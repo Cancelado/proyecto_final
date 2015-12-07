@@ -1,6 +1,6 @@
 Feature: Como empleado/administrador de la Tintorería
 		quiero registrar prenda	
-		para poder modificar de la lista de pedidos.
+		para poder modificar la lista de pedidos.
 
 Scenario: Registrar prenda “Registrando Prenda de Juan Perez”
 		Given Que selecciono el botón “Registrar Prenda” en el formulario nuevaPrenda

@@ -17,8 +17,8 @@
 				<h4>Color:</h4>
 				<li>{{ropa.color}}</li>
 			</ul>
-
-			<!-- <form method="POST">
+<!--
+			 <form method="POST">
 				{% csrf_token %}
 				<input type="submit" value="eliminar" onclick="return confirm('Deseas eliminar la prenda: {{ropa}}');">
 				<input type="hidden" name="idEliminar" value="{{ropa.id}}">
@@ -30,10 +30,10 @@
 				<input type="hidden" name="idEditar" value="{{ropa.id}}">
 			</form>
 			-->
-
+			
 			<a href="javascript: if (confirm('Deseas modificar {{ropa}}??')) window.location='{% url "editar" pk=ropa.id %}'">Editar</a>
 			<a href="javascript: if (confirm('Deseas eliminar {{ropa}}??')) window.location='{% url "eliminar" pk=ropa.id %}'">Eliminar</a>
-
+			
 			<hr>
 		{% endfor %}
 	</ul>

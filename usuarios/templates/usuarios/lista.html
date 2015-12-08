@@ -1,15 +1,114 @@
+ {% load staticfiles %}
+ <html>
+
 <div>
-	<h1>Lista de Usuarios</h1>
-	<button onclick="window.location='{% url "nuevoU" %}'">Agregar Usuario </button>
-		{% for user in usuarios %}
-		<h3> {{user.nombre}} {{user.apellidos}}</h3>
-		<ul>
-			<li>{{user.usuario}}</li>
-			<li>{{user.mail}}</li>
-		</ul>
-		<a href = "javascript: if(confirm('Deseas editar {{user}}??')) window.location='{% url "editarU" pk=user.id %}'"> Editar</a>
-		<a href = "javascript: if(confirm('Deseas eliminar {{user}}??')) window.location='{% url "eliminarU" pk=user.id %}'"> Eliminar</a>
-		<br>
-		<hr>
-		{% endfor %}
-</div>
+	<!--COPEAR -->
+ 	<header> <meta charset="UTF-8">
+		<!-- Agregando Bootstrap a la pagina -->
+		<title> LISTA DE USUARIOS </title>
+		<meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/lista.css' %}">
+		<div class="container">
+			<div class="col-md-9">
+			<p align="left">
+				<img src="{% static 'imgs/eco2.jpg' %}" witdh="450" height="70">
+			</p></div>
+			<div class="col-md-3">
+			<p align="right"><h1>Tintoreria</h1></p></div>			
+		</div>
+
+
+	</header>
+	<!--COPEAR -->
+
+	<!--COPEAR -->
+	<body background="{% static 'imgs/maquinas.jpg' %}">
+	<!--COPEAR -->
+		
+		<div class="container">
+
+
+			<div class="row">
+
+			    <div class = "col-md-8"> <a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-home"> HOME</i></a> </div>
+			    <div class="col-md-4"> </div>
+			    <div class="btn-group btn-breadcrumb">
+			        <!--   <a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-home"></i></a> -->
+			        <a href="#" class="btn btn-primary">Usuarios</a>
+			        <a href="#" class="btn btn-primary">Prendas</a>
+			        <a href="#" class="btn btn-primary">Acerca De</a>
+			        <a href="#" class="btn btn-primary">Salir  <i class="glyphicon glyphicon-share-alt"></i></a>
+			    </div>
+			</div>
+
+
+			<div class="main row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4"><p align="center"><p align="center"><h1>Lista de Usuarios</h1></p></p></div>
+				<div class="col-md-4"></div>
+				</br></br></br></br>
+				
+				<div class="col-md-12">
+					<p align="center">
+						<button class="btn btn-primary" onclick="window.location='{% url "nuevoU" %}'">Agregar Usuario </button>
+					</p>
+				</div>
+
+
+				<div class="col-md-3"></div>
+				<div class="col-md-4">
+					{% for user in usuarios %}
+					<h3> {{user.nombre}} {{user.apellidos}}</h3>
+					<ul>
+						<li>{{user.usuario}}</li>
+						<li>{{user.mail}}</li>
+					</ul>
+					<a href = "javascript: if(confirm('Deseas editar {{user}}??')) window.location='{% url "editarU" pk=user.id %}'"> Editar</a>
+					<a href = "javascript: if(confirm('Deseas eliminar {{user}}??')) window.location='{% url "eliminarU" pk=user.id %}'"> Eliminar</a>
+					<label> ------------------------------------------------------------------------</label>
+					<br>
+					{% endfor %}
+				</div>
+				<div class="col-md-5"></div>
+
+
+			</div>
+
+			
+		</div>
+
+		<footer> 
+
+		<div class="container"> 
+			<div class = "col-md-4"> 
+			<h1> <img src="{% static 'imgs/chocos.png' %}" witdh="450" height="70"> </h1>
+			</div>
+			<div class = "col-md-4"> 
+				<p align="center">
+				<!-- </br> -->
+				</p>
+			</div>
+
+			<div class = "col-md-4">
+				<label><h3>
+				<!--Fecha-->
+				<script>
+				var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+				var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+				var f=new Date();
+				document.write(diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+				</script>
+
+				</h3></label> 
+			</div>
+		</div>
+		
+
+		</footer>
+
+		<!-- Scripts de Bootstrap obligatorios -->
+				<script src="{% static '/js/jquery.js' %}"></script>
+				<script src="{% static '/js/bootstrap.min.' %}"></script>
+		</body>
+<html>

@@ -12,12 +12,6 @@ class MainPageRopa(TestCase):
 		found = resolve('/ropa/')
 		self.assertEqual(found.func, listar)
 
-<<<<<<< HEAD
-
-	def test_root_url_resolves_to_editar_view(self):
-		found = resolve('/ropa/editar/')
-		self.assertEqual(found.func, editar)
-=======
 	def test_ropa_listar_returns_correct_html(self):
 		request = HttpRequest()
 		response = listar(request)
@@ -44,6 +38,7 @@ class MainPageRopa(TestCase):
 		found = resolve('/ropa/0/eliminar')
 		self.assertEqual(found.func, eliminar)
 
+	#test de prueba editado por el profesor Alejandro
 	def test_ropa_eliminar_returns_correct_error_message(self):
 		request = HttpRequest()
 		color=Color(color='azul')
@@ -58,7 +53,8 @@ class MainPageRopa(TestCase):
 		colorDel = Color.objects.get(color='azul')
 		colorDel.delete()
 
-#		self.assertIn('Http404', response.content)
+	def test_ropa_eliminar_elimina_correctamente(self):
+		ropa = Ropa()
 
 	#pruebas unitarias para probar la funcionalidad de la app ropa en su opcion editar ropa
 	def test_root_url_resolves_to_ropa_editar_view(self):
@@ -71,4 +67,3 @@ class MainPageRopa(TestCase):
 		request.POST['id'] = '1'
 		response = editar(request)
 		self.assertIn(b'Ropa</h1>', response.content)
->>>>>>> 0f5d5dd39dc435f3cb67a895c3c6035b8bdc352d

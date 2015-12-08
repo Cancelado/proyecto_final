@@ -34,7 +34,7 @@ def eliminar(request, pk):
 	return redirect('listar')
 
 
-def editar(request):
+def editar(request, pk):
 	if request.method == "POST":
 		form = RopaForm(request.POST, instance=ropa)
 		#print request.POST

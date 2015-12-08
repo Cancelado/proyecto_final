@@ -19,7 +19,7 @@
 	</header>
 
 
-	<body background="{% static 'imgs/maquinas.jpg' %}">
+	<body background="{% static "imgs/maquinas.jpg" %}">
 				<div class = "container">
 
 				
@@ -49,7 +49,7 @@
 								{{color.color}}</h3>
 
 								<a href="javascript: if (confirm('Deseas modificar {{color}}??')) window.location='{% url "editar" pk=color.id %}'">Editar</a>
-								<a href="javascript: if (confirm('Deseas eliminar {{color}}??')) window.location='{% url "eliminar" pk=color.id %}'">Eliminar</a>
+								<a href="javascript: if (confirm('Deseas eliminar {{color}}??')) window.location='{% url "eliminarColor" pk=color.id %}'">Eliminar</a>
 								<hr>
 							{% endfor %}
 						</ul>

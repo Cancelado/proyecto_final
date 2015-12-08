@@ -16,7 +16,7 @@ urlpatterns = [
     #Color
     url(r'^listarColor', listarColor),
     url(r'^nuevoColor/', nuevoColor),
-    url(r'^(?P<pk>[0-9]+)/eliminarColor', eliminarColor),
+    url(r'^(?P<pk>[0-9]+)/eliminarColor', eliminarColor, name="eliminarColor"),
     url(r'^(?P<pk>[0-9]+)/editarColor', views.editarColor),
 
     #Tipo tela

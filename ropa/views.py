@@ -28,6 +28,8 @@ def nuevo(request):
 	return render(request,'ropa/ropa_nueva.html',{'form':form, 'etiqueta':'Nuevo'})
 
 def eliminar(request, pk):
+	print ("el id es: "+str(pk))
+	
 	ropa = get_object_or_404(Ropa, pk=pk)
 	print (ropa)
 	ropa.delete()
@@ -66,9 +68,10 @@ def nuevoColor(request):
 	return render(request,'color/nuevoColor.html',{'form':form, 'etiqueta':'Nuevo'})
 
 def eliminarColor(request, pk):
+	print ("el id es: "+str(pk))
 	color = get_object_or_404(Color, pk=pk)
 	color.delete()
-	return redirect('color/listaColor.html')
+	return redirect('listarColor')
 
 def eliminar_post_color(request):
 	color = Color.objects.get(id=request.POST.get('idEliminar'))

@@ -13,10 +13,10 @@ class MainPageRopa(TestCase):
 	def test_usuario_nuevo_returns_correct_html(self):
 		request = HttpRequest()
 		response = nuevoU(request)
-		self.assertTrue(response.content.startswith(b'<div>'))
+		self.assertIn(b'<html>',response.content)
 		self.assertIn(b'<h1> Nuevo Usuario</h1>',response.content)
 		self.assertIn(b'<input type = "submit" value = "Guardar" />', response.content)
-		self.assertTrue(response.content.endswith(b'</div>'))
+		self.assertTrue(response.content.endswith(b'</html>'))
 
 	def test_root_url_resolves_to_usuarios_listar_view(self):
 		found = resolve('/usuarios/')

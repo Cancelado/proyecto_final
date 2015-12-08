@@ -12,8 +12,6 @@ urlpatterns = [
     url(r'^nuevo/$', nuevo, name="nuevo"),
     url(r'^(?P<pk>[0-9]+)/eliminar', eliminar, name="eliminar"),
     url(r'^(?P<pk>[0-9]+)/editar', views.editar, name="editar"),
-<<<<<<< HEAD
-=======
 
     #Color
     url(r'^listarColor', listarColor),
@@ -32,5 +30,4 @@ urlpatterns = [
     url(r'^nuevoTipoPrenda/', nuevoTipoPrenda),
     url(r'^(?P<pk>[0-9]+)/eliminarTipoPrenda', eliminarTipoPrenda),
     url(r'^(?P<pk>[0-9]+)/editarTipoPrenda', views.editarTipoPrenda),
->>>>>>> af1dcef5dd669caa865318a69b2d67449bac5044
 ]

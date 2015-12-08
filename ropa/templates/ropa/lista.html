@@ -1,50 +1,116 @@
-<div>
-	<h1>Lista de Prendas</h1>
-	<ul>
-		<button onclick="window.location='{% url "nuevo" %}'">Agregar Prenda</button>
+ {% load staticfiles %}
 
-		{% for ropa in ropa %}
-		<h3>Propietario:
-		{{ropa.propietario}}</h3>
+ <html> 
 
-			<ul>
-				<h4>ID: {{ropa.id}}</h4>
-				
-				<h4>Prenda:</h4>
-				<li>{{ropa.tipoPrenda}}</li>
-				<h4>Tipo Tela:</h4>
-				<li>{{ropa.tipoTela}}</li>
-				<h4>Color:</h4>
-				<li>{{ropa.color}}</li>
-			</ul>
-<<<<<<< HEAD
-<!--
-			 <form method="POST">
-=======
+  	<header> <meta charset="UTF-8">
+		<!-- Agregando Bootstrap a la pagina -->
+		<title> LISTA DE PRENDAS </title>
+		<meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/lista.css' %}">
+		<div class="container">
+			<div class="col-md-9">
+			<p align="left">
+				<img src="{% static 'imgs/eco2.jpg' %}" witdh="450" height="70">
+			</p></div>
+			<div class="col-md-3">
+			<p align="right"><h1>Tintoreria</h1></p></div>			
+		</div>
+	</header>
 
-			<!--
-			<form method="POST">
->>>>>>> af1dcef5dd669caa865318a69b2d67449bac5044
-				{% csrf_token %}
-				<input type="submit" value="eliminar" onclick="return confirm('Deseas eliminar la prenda: {{ropa}}');">
-				<input type="hidden" name="idEliminar" value="{{ropa.id}}">
-			</form>
+	<body background="{% static 'imgs/maquinas.jpg' %}">
+			<div class = "container">
 
-			<form method="POST">
-				{% csrf_token %}
-				<input type="submit" value="editar" onclick="return confirm('Deseas editar la prenda: {{ropa}}');">
-				<input type="hidden" name="idEditar" value="{{ropa.id}}">
-			</form>
-			-->
 			
-			<a href="javascript: if (confirm('Deseas modificar {{ropa}}??')) window.location='{% url "editar" pk=ropa.id %}'">Editar</a>
-			<a href="javascript: if (confirm('Deseas eliminar {{ropa}}??')) window.location='{% url "eliminar" pk=ropa.id %}'">Eliminar</a>
-			
-<<<<<<< HEAD
-=======
+			<div class="row">
 
->>>>>>> af1dcef5dd669caa865318a69b2d67449bac5044
-			<hr>
-		{% endfor %}
-	</ul>
+				    <div class = "col-md-8"> <a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-home"> HOME</i></a> </div>
+				    <div class="col-md-4"> </div>
+				    <div class="btn-group btn-breadcrumb">
+				        <!--   <a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-home"></i></a> -->
+				        <a href="#" class="btn btn-primary">Usuarios</a>
+				        <a href="#" class="btn btn-primary">Prendas</a>
+				        <a href="#" class="btn btn-primary">Acerca De</a>
+				        <a href="#" class="btn btn-primary">Salir  <i class="glyphicon glyphicon-share-alt"></i></a>
+				    </div>
+			</div>
+
+		<div class="main row">
+
+				<div>
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+					<h1>Lista de Prendas</h1>
+					<ul>
+						<button class="btn btn-primary" onclick="window.location='{% url "nuevo" %}'">Agregar Prenda</button>
+
+						{% for ropa in ropa %}
+						<h3>Propietario:
+						{{ropa.propietario}}</h3>
+
+								<h4>PRENDA: {{ropa.tipoPrenda}}</h4>
+								
+								<h4>TIPO TELA: {{ropa.tipoTela}}</h4>
+								
+								<h4>COLOR: {{ropa.color}}</h4>					
+							
+				<!--
+							 <form method="POST">
+								{% csrf_token %}
+								<input type="submit" value="eliminar" onclick="return confirm('Deseas eliminar la prenda: {{ropa}}');">
+								<input type="hidden" name="idEliminar" value="{{ropa.id}}">
+							</form>
+
+							<form method="POST">
+								{% csrf_token %}
+								<input type="submit" value="editar" onclick="return confirm('Deseas editar la prenda: {{ropa}}');">
+								<input type="hidden" name="idEditar" value="{{ropa.id}}">
+							</form>
+							-->
+							
+							<a href="javascript: if (confirm('Deseas modificar {{ropa}}??')) window.location='{% url "editar" pk=ropa.id %}'">Editar</a>
+							<a href="javascript: if (confirm('Deseas eliminar {{ropa}}??')) window.location='{% url "eliminar" pk=ropa.id %}'">Eliminar</a>
+							<label> ----------------------------------------------------------------</label>
+							<br>
+						{% endfor %}
+					</ul>
+					<div class="col-md-5"></div>
+					</div>
+				</div> 
+		</div>
 </div>
+
+<!-- Scripts de Bootstrap obligatorios -->
+				<script src="{% static '/js/jquery.js' %}"></script>
+				<script src="{% static '/js/bootstrap.min.' %}"></script>
+</body>
+
+		<footer> 
+
+		<div class="container"> 
+					<div class = "col-md-4"> 
+					<h1> <img src="{% static 'imgs/chocos.png' %}" witdh="450" height="70"> </h1>
+					</div>
+					<div class = "col-md-4"> 
+						<p align="center">
+						<!-- </br> -->
+						</p>
+					</div>
+
+					<div class = "col-md-4">
+						<label><h3>
+						<!--Fecha-->
+						<script>
+						var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+						var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+						var f=new Date();
+						document.write(diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+						</script>
+
+						</h3></label> 
+					
+				</div>
+		</div>
+		</footer>
+
+</html>

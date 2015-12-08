@@ -29,7 +29,7 @@
 					    <div class="col-md-4"> </div>
 					    <div class="btn-group btn-breadcrumb">
 					        <!--   <a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-home"></i></a> -->
-					        <a href="http://192.168.1.157:8000/usuarios" class="btn btn-primary">Usuarios</a>
+					        <a href="http://192.168.0.21:8000/usuarios" class="btn btn-primary">Usuarios</a>
 					        <a href="#" class="btn btn-primary">Prendas</a>
 					        <a href="#" class="btn btn-primary">Acerca De</a>
 					        <a href="#" class="btn btn-primary">Salir  <i class="glyphicon glyphicon-share-alt"></i></a>
@@ -44,8 +44,8 @@
 					<form method="POST">
 						{% csrf_token %}
 						{{ form.as_p }}
-						<input type = "submit" value = "Guardar" />
-						<button type="button" onclick="window.location='{% url "listarU" %}'"> Cancelar </button>	
+						<input class= "btn btn-warning" type = "submit" value = "Guardar" />
+						<button class="btn btn-primary" type="button" onclick="window.location='{% url "listarU" %}'"> Cancelar </button>	
 					</div>	
 					<div class="col-md-5"></div>
 					</form>

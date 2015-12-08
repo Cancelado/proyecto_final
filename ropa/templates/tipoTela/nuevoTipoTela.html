@@ -1,11 +1,86 @@
-<div>
-	<h1>
-		{{etiqueta}} Tipo de Tela</h1>
-	<form method="POST">
-		{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" value="Guardar" />
-		<button type="button" onclick="window.location= '{% url "listar" %}'">Cancelar</button>
-		<input type="hidden" name="id" value="{{id}}">
-	</form>
+{% load staticfiles %}
+<html>
+
+	<header> <meta charset="UTF-8">
+		<!-- Agregando Bootstrap a la pagina -->
+		<title> LISTA DE PRENDAS </title>
+		<meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/lista.css' %}">
+		<div class="container">
+			<div class="col-md-9">
+			<p align="left">
+				<img src="{% static 'imgs/eco2.jpg' %}" witdh="450" height="70">
+			</p></div>
+			<div class="col-md-3">
+			<p align="right"><h1>Tintoreria</h1></p></div>			
+		</div>
+	</header>
+
+	<body background="{% static 'imgs/maquinas.jpg' %}">
+			<div class = "container">
+
+			
+			<div class="row">
+
+				    <div class = "col-md-8"> <a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-home"> HOME</i></a> </div>
+				    <div class="col-md-4"> </div>
+				    <div class="btn-group btn-breadcrumb">
+				        <!--   <a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-home"></i></a> -->
+				        <a href="#" class="btn btn-primary">Usuarios</a>
+				        <a href="#" class="btn btn-primary">Prendas</a>
+				        <a href="#" class="btn btn-primary">Acerca De</a>
+				        <a href="#" class="btn btn-primary">Salir  <i class="glyphicon glyphicon-share-alt"></i></a>
+				    </div>
+			</div>
+
+		<div class="main row">
+
+			<div>
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+				<h1>
+					{{etiqueta}} Tipo de Tela</h1>
+				<form method="POST">
+					{% csrf_token %}
+					{{ form.as_p }}
+					<input class="btn btn-warning" type="submit" value="Guardar" />
+					<button class="btn btn-primary" type="button" onclick="window.location= '{% url "listar" %}'">Cancelar</button>
+					<input type="hidden" name="id" value="{{id}}">
+				</form>
+			</div>
+
+		</div>
+	</div>
 </div>
+</body>
+
+	<footer> 
+
+		<div class="container"> 
+					<div class = "col-md-4"> 
+					<h1> <img src="{% static 'imgs/chocos.png' %}" witdh="450" height="70"> </h1>
+					</div>
+					<div class = "col-md-4"> 
+						<p align="center">
+						<!-- </br> -->
+						</p>
+					</div>
+
+					<div class = "col-md-4">
+						<label><h3>
+						<!--Fecha-->
+						<script>
+						var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+						var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+						var f=new Date();
+						document.write(diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+						</script>
+
+						</h3></label> 
+					
+				</div>
+		</div>
+		</footer>
+
+</html>

@@ -12,12 +12,6 @@ class MainPageRopa(TestCase):
 		found = resolve('/ropa/')
 		self.assertEqual(found.func, listar)
 
-<<<<<<< HEAD
-
-	def test_root_url_resolves_to_editar_view(self):
-		found = resolve('/ropa/editar/')
-		self.assertEqual(found.func, editar)
-=======
 	def test_ropa_listar_returns_correct_html(self):
 		request = HttpRequest()
 		response = listar(request)
@@ -45,7 +39,7 @@ class MainPageRopa(TestCase):
 		self.assertEqual(found.func, eliminar)
 
 	def test_ropa_eliminar_returns_correct_error_message(self):
-		request = HttpRequest()
+		#request = HttpRequest()
 		color=Color(color='azul')
 		color.save()
 		colores = Color.objects.all()
@@ -64,11 +58,3 @@ class MainPageRopa(TestCase):
 	def test_root_url_resolves_to_ropa_editar_view(self):
 		found = resolve('/ropa/1/editar/')
 		self.assertEqual(found.func, editar)
-
-	def test_ropa_editar_returns_correct_html(self):
-		request = HttpRequest()
-		request.method = 'POST'
-		request.POST['id'] = '1'
-		response = editar(request)
-		self.assertIn(b'Ropa</h1>', response.content)
->>>>>>> 0f5d5dd39dc435f3cb67a895c3c6035b8bdc352d

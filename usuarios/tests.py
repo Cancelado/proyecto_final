@@ -2,6 +2,7 @@ from django.core.urlresolvers import resolve
 from django.test import TestCase
 from usuarios.views import nuevoU, listarU, eliminarU, editarU
 from django.http import HttpRequest
+from usuarios.models import Usuario
 
 class MainPageRopa(TestCase):
 
@@ -28,3 +29,13 @@ class MainPageRopa(TestCase):
 	def test_root_url_resolves_to_usuarios_editar_view(self):
 		found = resolve('/usuarios/1/editarU/')
 		self.assertEqual(found.func, editarU)
+
+	def test_usuario_eliminar_returns_correct_error_message(self):
+		usuario=Usuario(usuario='Luis',password='nomames',nombre='Luis',apellidos='Correa Rada',fecha='2012-12-12',edad=30,mail='rada.lmc@gmail.com')
+		usuario.save()
+		usuarios = Usuario.objects.all()
+		self.assertEqual(usuarios[0].usuario,'Luis')
+		usuarios = Usuario.objects.all()
+		self.assertEqual(len(usuarios),1)
+		usuarioDel = Usuario.objects.get(usuario='Luis')
+		usuarioDel.delete()

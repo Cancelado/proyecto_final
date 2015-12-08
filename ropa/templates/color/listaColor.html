@@ -1,0 +1,15 @@
+<div>
+	<h1>Lista de Colores</h1>
+	<ul>
+		<button onclick="window.location='{% url "nuevo" %}'">Agregar Color</button>
+
+		{% for color in color %}
+			<h3>Color:
+			{{color.color}}</h3>
+
+			<a href="javascript: if (confirm('Deseas modificar {{color}}??')) window.location='{% url "editar" pk=color.id %}'">Editar</a>
+			<a href="javascript: if (confirm('Deseas eliminar {{color}}??')) window.location='{% url "eliminar" pk=color.id %}'">Eliminar</a>
+			<hr>
+		{% endfor %}
+	</ul>
+</div>

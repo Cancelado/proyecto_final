@@ -36,6 +36,7 @@ def eliminar(request, pk):
 
 def editar(request, pk):
 	if request.method == "POST":
+		ropa = Ropa.objects.get(id=request.POST['id'])
 		form = RopaForm(request.POST, instance=ropa)
 		#print request.POST
 		if form.is_valid():
@@ -50,7 +51,7 @@ def editar(request, pk):
 """Color"""
 def listarColor(request):
 	color = Color.objects.all()
-	return render(request, 'color/lista.html', {'color':color})
+	return render(request, 'color/listaColor.html', {'color':color})
 
 def nuevoColor(request):
 	if request.method == "POST":
@@ -59,7 +60,7 @@ def nuevoColor(request):
 		if form.is_valid():
 			color = form.save()
 			color.save()
-			return redirect('color.views.listar')
+			return redirect('color.views.listaColor')
 	else:
 		form = ColorForm
 	return render(request,'color/nuevoColor.html',{'form':form, 'etiqueta':'Nuevo'})
@@ -67,12 +68,12 @@ def nuevoColor(request):
 def eliminarColor(request, pk):
 	color = get_object_or_404(Color, pk=pk)
 	color.delete()
-	return redirect('listar')
+	return redirect('color/listaColor.html')
 
 def eliminar_post_color(request):
 	color = Color.objects.get(id=request.POST.get('idEliminar'))
 	color.delete()
-	return redirect('listar')
+	return redirect('color/listaColor.html')
 
 def editarColor(request, pk):
 	color = get_object_or_404(Color, pk=pk)
@@ -82,7 +83,7 @@ def editarColor(request, pk):
 		if form.is_valid():
 			color = form.save()
 			color.save()
-			return redirect('listar')
+			return redirect('color/listaColor.html')
 	else:
 		form = ColorForm(instance=color)
 	return render(request,'color/nuevoColor.html',{'form':form, 'etiqueta':'Actualizar'})
@@ -91,7 +92,7 @@ def editarColor(request, pk):
 """TipoPrenda"""
 def listarTipoPrenda(request):
 	tipoPrenda = TipoPrenda.objects.all()
-	return render(request, 'tipoPrenda/lista.html', {'tipoPrenda':tipoPrenda})
+	return render(request, 'tipoPrenda/listaTipoPrenda.html', {'tipoPrenda':tipoPrenda})
 
 def nuevoTipoPrenda(request):
 	if request.method == "POST":
@@ -100,20 +101,20 @@ def nuevoTipoPrenda(request):
 		if form.is_valid():
 			tipoPrenda = form.save()
 			tipoPrenda.save()
-			return redirect('tipoPrenda.views.listar')
+			return redirect('listaTipoPrenda.html')
 	else:
 		form = TipoPrendaForm
-	return render(request,'tipoPrenda/tipoPrenda.html',{'form':form, 'etiqueta':'Nuevo'})
+	return render(request,'tipoPrenda/nuevoTipoPrenda.html',{'form':form, 'etiqueta':'Nuevo'})
 
 def eliminarTipoPrenda(request, pk):
 	tipoPrenda = get_object_or_404(TipoPrenda, pk=pk)
 	tipoPrenda.delete()
-	return redirect('listar')
+	return redirect('tipoPrenda/listaTipoPrenda.html')
 
 def eliminar_post_TipoPrenda(request):
 	tipoPrenda = TipoPrenda.objects.get(id=request.POST.get('idEliminar'))
 	tipoPrenda.delete()
-	return redirect('listar')
+	return redirect('tipoPrenda/listaTipoPrenda.html')
 
 def editarTipoPrenda(request, pk):
 	tipoPrenda = get_object_or_404(TipoPrenda, pk=pk)
@@ -123,7 +124,7 @@ def editarTipoPrenda(request, pk):
 		if form.is_valid():
 			tipoPrenda = form.save()
 			tipoPrenda.save()
-			return redirect('listar')
+			return redirect('tipoPrenda/listaTipoPrenda.html')
 	else:
 		form = TipoPrendaForm(instance=tipoPrenda)
 	return render(request,'tipoPrenda/tipoPrenda.html',{'form':form, 'etiqueta':'Actualizar'})
@@ -132,7 +133,7 @@ def editarTipoPrenda(request, pk):
 """TipoTela"""
 def listarTipoTela(request):
 	tipoTela = TipoTela.objects.all()
-	return render(request, 'tipoTela/tipoTela.html', {'tipoTela':tipoTela})
+	return render(request, 'tipoTela/listaTipoTela.html', {'tipoTela':tipoTela})
 
 def nuevoTipoTela(request):
 	if request.method == "POST":
@@ -141,15 +142,15 @@ def nuevoTipoTela(request):
 		if form.is_valid():
 			tipoTela = form.save()
 			tipoTela.save()
-			return redirect('tipoTela.views.listar')
+			return redirect('tipoTela/listaTipoTela.html')
 	else:
 		form = TipoTelaForm
-	return render(request,'tipoTela/tipoTela.html',{'form':form, 'etiqueta':'Nuevo'})
+	return render(request,'tipoTela/nuevoTipoTela.html',{'form':form, 'etiqueta':'Nuevo'})
 
 def eliminarTipoTela(request, pk):
 	tipoTela = get_object_or_404(TipoTela, pk=pk)
 	tipoTela.delete()
-	return redirect('listar')
+	return redirect('tipoTela/listaTipoTela.html')
 
 def editarTipoTela(request, pk):
 	tipoTela = get_object_or_404(TipoTela, pk=pk)
@@ -159,7 +160,7 @@ def editarTipoTela(request, pk):
 		if form.is_valid():
 			tipoTela = form.save()
 			tipoTela.save()
-			return redirect('listar')
+			return redirect('tipoTela/listaTipoTela.html')
 	else:
 		form = TipoTelaForm(instance=tipoTela)
 	return render(request,'tipoTela/TipoTela.html',{'form':form, 'etiqueta':'Actualizar'})

@@ -1,0 +1,17 @@
+<div>
+	<h1>Lista de Prendas</h1>
+	<ul>
+		<button onclick="window.location='{% url "nuevo" %}'">Agregar Prenda</button>
+
+		{% for tipoPrenda in tipoPrenda %}
+			<h3>Tipo de Prenda:
+			{{tipoPrenda.tipoPrenda}}</h3>
+			
+			<a href="javascript: if (confirm('Deseas modificar {{tipoPrenda}}??')) window.location='{% url "editar" pk=tipoPrenda.id %}'">Editar</a>
+			<a href="javascript: if (confirm('Deseas eliminar {{tipoPrenda}}??')) window.location='{% url "eliminar" pk=tipoPrenda.id %}'">Eliminar</a>
+			
+
+			<hr>
+		{% endfor %}
+	</ul>
+</div>

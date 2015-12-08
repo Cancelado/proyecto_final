@@ -1,0 +1,17 @@
+<div>
+	<h1>Lista de Tipos de Tela</h1>
+	<ul>
+		<button onclick="window.location='{% url "nuevo" %}'">Agregar Tipo de Tela</button>
+
+		{% for tipoTela in tipoTela %}
+			<h3>Tipo de tela:
+			{{tipoTela.tipoTela}}</h3>
+			
+			<a href="javascript: if (confirm('Deseas modificar {{tela}}??')) window.location='{% url "editar" pk=tipoTela.id %}'">Editar</a>
+			<a href="javascript: if (confirm('Deseas eliminar {{tela}}??')) window.location='{% url "eliminar" pk=tipoTela.id %}'">Eliminar</a>
+			
+
+			<hr>
+		{% endfor %}
+	</ul>
+</div>

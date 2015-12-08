@@ -17,8 +17,14 @@
 				<h4>Color:</h4>
 				<li>{{ropa.color}}</li>
 			</ul>
+<<<<<<< HEAD
 <!--
 			 <form method="POST">
+=======
+
+			<!--
+			<form method="POST">
+>>>>>>> af1dcef5dd669caa865318a69b2d67449bac5044
 				{% csrf_token %}
 				<input type="submit" value="eliminar" onclick="return confirm('Deseas eliminar la prenda: {{ropa}}');">
 				<input type="hidden" name="idEliminar" value="{{ropa.id}}">
@@ -34,6 +40,10 @@
 			<a href="javascript: if (confirm('Deseas modificar {{ropa}}??')) window.location='{% url "editar" pk=ropa.id %}'">Editar</a>
 			<a href="javascript: if (confirm('Deseas eliminar {{ropa}}??')) window.location='{% url "eliminar" pk=ropa.id %}'">Eliminar</a>
 			
+<<<<<<< HEAD
+=======
+
+>>>>>>> af1dcef5dd669caa865318a69b2d67449bac5044
 			<hr>
 		{% endfor %}
 	</ul>

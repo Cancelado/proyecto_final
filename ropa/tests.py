@@ -40,7 +40,7 @@ class MainPageRopa(TestCase):
 
 	#test de prueba editado por el profesor Alejandro
 	def test_ropa_eliminar_returns_correct_error_message(self):
-		request = HttpRequest()
+		#request = HttpRequest()
 		color=Color(color='azul')
 		color.save()
 		colores = Color.objects.all()
@@ -60,6 +60,7 @@ class MainPageRopa(TestCase):
 	def test_root_url_resolves_to_ropa_editar_view(self):
 		found = resolve('/ropa/1/editar/')
 		self.assertEqual(found.func, editar)
+<<<<<<< HEAD
 
 	def test_ropa_editar_returns_correct_html(self):
 		request = HttpRequest()
@@ -67,3 +68,5 @@ class MainPageRopa(TestCase):
 		request.POST['id'] = '1'
 		response = editar(request)
 		self.assertIn(b'Ropa</h1>', response.content)
+=======
+>>>>>>> af1dcef5dd669caa865318a69b2d67449bac5044
